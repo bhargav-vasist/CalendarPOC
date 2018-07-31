@@ -14,20 +14,35 @@ class ViewController: UIViewController {
     
     @IBOutlet var daysStackView: [UILabel]!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var monthLabel: UILabel!
+//    @IBOutlet weak var topLayer: GradientView!
     
-    var selectedMonthColor = UIColor(colorWithHexValue: 0x550252)
-    var monthColor = UIColor(colorWithHexValue: 0x000000)
+    var selectedMonthColor = UIColor(colorWithHexValue: 0x567BFF)
+    var monthColor = UIColor(colorWithHexValue: 0xFFFFFF)
     var outsideMonthColor = UIColor(colorWithHexValue: 0x555555)
-    var calendarDatesBackgroundColor = UIColor(colorWithHexValue: 0xECEAED)
+    var calendarDatesBackgroundColor = UIColor(colorWithHexValue: 0x567BFF)
     var calendarDaysBackgroundColor = UIColor(colorWithHexValue: 0x567BFF)
     var monthLabelColor = UIColor(colorWithHexValue: 0xECEAED)
     var yearLabelColor = UIColor(colorWithHexValue: 0xECEAED)
+    var topLayerColor = UIColor(colorWithHexValue: 0x567BFF)
     var rangeSelectedDates: [Date] = []
+    let formatter = DateFormatter()
     var testCalendar = Calendar.current
+    func addThePullUpController() {
+        guard
+            let pullUpController = UIStoryboard(name: "Main", bundle: nil)
+                .instantiateViewController(withIdentifier: "EventsPullUpController") as? EventsAndTasksViewController
+            else { return }
+        
+        addPullUpController(pullUpController)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCalendarView()
+        addThePullUpController()
     }
     func setupCalendarView(){
         calendarView.minimumLineSpacing = 0
@@ -37,7 +52,11 @@ class ViewController: UIViewController {
         let panGensture = UILongPressGestureRecognizer(target: self, action: #selector(didStartRangeSelecting(gesture:)))
         panGensture.minimumPressDuration = 0.5
         calendarView.addGestureRecognizer(panGensture)
-        calendarView.backgroundColor = calendarDatesBackgroundColor
+        //calendarView.backgroundColor = calendarDatesBackgroundColor
+        calendarView.scrollToDate(Date())
+      //  for day in daysStackView {
+      //      day.backgroundColor = calendarDaysBackgroundColor
+       // }
     }
     func handleCellTextColor(cell: JTAppleCell?, cellState: CellState){
         guard let validCell = cell as? CustomCell else { return }
@@ -47,10 +66,10 @@ class ViewController: UIViewController {
         else {
             if cellState.dateBelongsTo == .thisMonth {
                 validCell.dateLabel.textColor = monthColor
-                validCell.backgroundColor = UIColor(colorWithHexValue: 0x567BFF)
+             //   validCell.backgroundColor = UIColor(colorWithHexValue: 0x567BFF)
             } else {
                 validCell.dateLabel.textColor = outsideMonthColor
-                validCell.backgroundColor = UIColor(colorWithHexValue: 0x567BFF)
+             //   validCell.backgroundColor = UIColor(colorWithHexValue: 0x567BFF)
             }
         }
     }
@@ -59,7 +78,7 @@ class ViewController: UIViewController {
         switch cellState.selectedPosition() {
         case .full, .left, .right, .middle:
             validCell.selectedView.isHidden = false
-            validCell.selectedView.backgroundColor = UIColor.yellow
+            validCell.selectedView.backgroundColor = UIColor.white
             
         default:
             validCell.selectedView.isHidden = true
@@ -92,15 +111,17 @@ class ViewController: UIViewController {
             rangeSelectedDates.removeAll()
         }
     }
+    
 }
 
 extension ViewController: JTAppleCalendarViewDataSource {
+   
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         
     }
     
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        let formatter = DateFormatter()
+        
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
         formatter.dateFormat = "dd MM yyyy"
@@ -129,6 +150,13 @@ extension ViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         handleCellSelection(cell: cell, cellState: cellState)
         handleCellTextColor(cell: cell, cellState: cellState)
+    }
+    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        let date = visibleDates.monthDates.first?.date
+        formatter.dateFormat = "yyyy"
+        yearLabel.text = formatter.string(from: date!)
+        formatter.dateFormat = "MMMM"
+        monthLabel.text = formatter.string(from: date!)
     }
 }
 

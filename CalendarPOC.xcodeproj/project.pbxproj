@@ -19,6 +19,9 @@
 		1EA5863720D8DA350014936C /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA5863620D8DA350014936C /* JTAppleCalendar.framework */; };
 		1EA5863A20D8DEA00014936C /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5863820D8DEA00014936C /* CustomCell.swift */; };
 		1EA5863B20D8DEA00014936C /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA5863920D8DEA00014936C /* CustomCell.xib */; };
+		1EA5863F20D93C290014936C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5863E20D93C290014936C /* GradientView.swift */; };
+		1EA5864120DA2E350014936C /* PullUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5864020DA2E350014936C /* PullUpController.swift */; };
+		1EA5864520DA2EFD0014936C /* EventsAndTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA5864420DA2EFD0014936C /* EventsAndTasksViewController.swift */; };
 		321A3579C84E98A73C9E58F8 /* Pods_CalendarPOCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA5862E20D8D8560014936C /* Pods_CalendarPOCTests.framework */; };
 		3760F7647FFB9B83090807D9 /* Pods_CalendarPOCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16A1A1C6328CBE3734CCBDF /* Pods_CalendarPOCTests.framework */; };
 		608FA0314C86EFBB17BCF6E0 /* Pods_CalendarPOCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24711E0C19915C98C41BEF6C /* Pods_CalendarPOCUITests.framework */; };
@@ -64,6 +67,9 @@
 		1EA5863620D8DA350014936C /* JTAppleCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JTAppleCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EA5863820D8DEA00014936C /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		1EA5863920D8DEA00014936C /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		1EA5863E20D93C290014936C /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		1EA5864020DA2E350014936C /* PullUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullUpController.swift; sourceTree = "<group>"; };
+		1EA5864420DA2EFD0014936C /* EventsAndTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsAndTasksViewController.swift; sourceTree = "<group>"; };
 		24711E0C19915C98C41BEF6C /* Pods_CalendarPOCUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalendarPOCUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		266A7ACE32D1F1758BBD9E1F /* Pods-CalendarPOCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarPOCUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarPOCUITests/Pods-CalendarPOCUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4034B095AE48A59861B0DF03 /* Pods-CalendarPOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarPOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarPOC/Pods-CalendarPOC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +138,8 @@
 		1EA585FD20D8D6F80014936C /* CalendarPOC */ = {
 			isa = PBXGroup;
 			children = (
+				1EA5864020DA2E350014936C /* PullUpController.swift */,
+				1EA5863E20D93C290014936C /* GradientView.swift */,
 				1EA585FE20D8D6F80014936C /* AppDelegate.swift */,
 				1EA5860020D8D6F80014936C /* ViewController.swift */,
 				1EA5860220D8D6F80014936C /* Main.storyboard */,
@@ -140,6 +148,7 @@
 				1EA5860A20D8D6FA0014936C /* Info.plist */,
 				1EA5863820D8DEA00014936C /* CustomCell.swift */,
 				1EA5863920D8DEA00014936C /* CustomCell.xib */,
+				1EA5864420DA2EFD0014936C /* EventsAndTasksViewController.swift */,
 			);
 			path = CalendarPOC;
 			sourceTree = "<group>";
@@ -402,6 +411,9 @@
 			files = (
 				1EA5860120D8D6F80014936C /* ViewController.swift in Sources */,
 				1EA5863A20D8DEA00014936C /* CustomCell.swift in Sources */,
+				1EA5863F20D93C290014936C /* GradientView.swift in Sources */,
+				1EA5864120DA2E350014936C /* PullUpController.swift in Sources */,
+				1EA5864520DA2EFD0014936C /* EventsAndTasksViewController.swift in Sources */,
 				1EA585FF20D8D6F80014936C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
